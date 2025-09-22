@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: betalent-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: betalent_db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
